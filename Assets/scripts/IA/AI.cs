@@ -7,31 +7,80 @@ public class AI : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
 
-    public GameObject destination1;
+    public Transform[] destinations ;
 
-    public GameObject destination2;
+    public float distanceToFollowPath = 2;
 
+    private int i = 0;
+
+    [Header("--------------FollowPlayer?-------------")]
+
+    public bool followPlayer;
+
+    private GameObject player;
+
+    private float distanceToPlayer;
+
+    public float distanceToFollowPlayer = 10;
 
     void Start()
     {
-        navMeshAgent.destination = destination1.transform.position;
+        navMeshAgent.destination = destinations[0].transform.position;
+
+        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
 
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, destination1.transform.position);
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance <2)
+        if (distanceToPlayer <= distanceToFollowPlayer && followPlayer)
         {
-            navMeshAgent.destination = destination2.transform.position;
+            FollowPlayer();
+
+
+        }
+        else
+        {
+            EnemyPath();
+
 
         }
 
 
     }
 
+
+    public void EnemyPath()
+    {
+        navMeshAgent.destination = destinations[i].position;
+
+        if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath)
+        {
+            if (destinations[i] != destinations[destinations.Length - 1])
+            { 
+            
+            
+            }
+            else 
+            {
+             i = 0 ; 
+            
+            }
+
+        }
+
+
+
+
+    }
+    public void FollowPlayer()
+    {
+        navMeshAgent.destination = player.transform.position;  
+
+    }
 
 
 }
