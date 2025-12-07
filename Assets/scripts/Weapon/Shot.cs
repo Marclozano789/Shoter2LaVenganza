@@ -3,24 +3,36 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
 
-    public Transform spwnPoint;
+    public Transform spawnPoint;
 
     public GameObject bullet;
 
     public float shotForce = 1500f;
     public float shotRate = 0.5f;
 
-    private float shotrateTime = 0; 
+    private float shotRateTime = 0; 
 
 
     
     void Update()
     {
-       if (Input.getButtonDown("Fire1")) 
+        if (Input.GetKeyDown(KeyCode.Mouse1)) 
+        {
+            
+            
+            if (Time.time > shotRateTime)
+            {
+                GameObject newBullet;
 
+                newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
 
+                newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
 
+                shotRateTime = Time.time + shotRate;
 
+                Destroy(newBullet,5 );
+            }
+        }
 
 
 
