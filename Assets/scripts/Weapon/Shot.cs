@@ -16,6 +16,13 @@ public class Shot : MonoBehaviour
     
     void Update()
     {
-        
+       if (Input.getButtonDown("Fire1")) 
+
+
+
+
+
+
+
     }
 }
