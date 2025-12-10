@@ -18,6 +18,8 @@ public class CameraLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float dt = Time.timeScale == 0 ? Time.unscaledDeltaTime : Time.deltaTime;
+
         float mouseX = Input.GetAxis("Mouse X")* mouseSensitivity * Time.deltaTime ;
 
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

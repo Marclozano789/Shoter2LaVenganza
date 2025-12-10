@@ -15,18 +15,18 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
 
-
     public float jumpHeight = 3;
 
     void Update()
     {
+        
+
         isGrounded = Physics.CheckSphere(groundCheck.position, sphereRadius, groundMask);
         if (isGrounded && velocity.y < 0) 
         {
             velocity.y = -2f;
         
         }
-
        
         float x= Input.GetAxis( "Horizontal" );
         float z = Input.GetAxis("Vertical");
@@ -40,17 +40,11 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         
         }
-
-
-        characterController.Move( move * speed * Time.deltaTime );
-        
-        velocity.y += gravity * Time.deltaTime;
-
-        characterController.Move(velocity * Time.deltaTime);
-
-
-
-
+        //dt donde Time.deltaTime
+        float dt = Time.timeScale == 0 ? Time.unscaledDeltaTime : Time.deltaTime;
+        characterController.Move( move * speed * dt );
+        velocity.y += gravity * dt;
+        characterController.Move(velocity * dt);
 
 
 
