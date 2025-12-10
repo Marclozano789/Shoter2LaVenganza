@@ -20,9 +20,9 @@ public class CameraLook : MonoBehaviour
     {
         float dt = Time.timeScale == 0 ? Time.unscaledDeltaTime : Time.deltaTime;
 
-        float mouseX = Input.GetAxis("Mouse X")* mouseSensitivity * Time.deltaTime ;
+        float mouseX = Input.GetAxis("Mouse X")* mouseSensitivity * dt ;
 
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * dt;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

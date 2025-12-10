@@ -1324,7 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63c731ca5121fc409a871f4c453a673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopDuration: 3
+  stopDuration: 1.5
   colorFilter: {fileID: 776572911}
   maxAlpha: 0.5
   fadeSpeed: 3
