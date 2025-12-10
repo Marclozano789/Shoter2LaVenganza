@@ -122,12 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdbff7a84bb2d3418962765a9397109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5
+  radius: 2
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
-  floatHeight: 1
-  floatSpeed: 3
+  floatHeight: 2
+  floatSpeed: 2
   trapEnemies: 1
 --- !u!135 &3600114812733395973
 SphereCollider:

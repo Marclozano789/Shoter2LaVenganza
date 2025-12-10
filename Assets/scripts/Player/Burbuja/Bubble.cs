@@ -4,8 +4,8 @@ public class Bubble : MonoBehaviour
 {
     public float radius = 2f;          // radio de la burbuja
     public LayerMask enemyMask;
-    public float floatHeight = 2f;     // altura de flotación
-    public float floatSpeed = 2f;      // velocidad de flotación
+    public float floatHeight = 2f;     // altura de flotaciÃ³n
+    public float floatSpeed = 2f;      // velocidad de flotaciÃ³n
     public bool trapEnemies = true;
 
     private void Update()
