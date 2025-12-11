@@ -1377,6 +1377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSwapDistance: 30
   swapKey: 113
+  swapDuration: 0.15
 --- !u!1 &714058683
 GameObject:
   m_ObjectHideFlags: 0

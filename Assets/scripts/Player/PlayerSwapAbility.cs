@@ -89,13 +89,17 @@ public class PlayerSwapAbility : MonoBehaviour
             //transform.rotation = Quaternion.Slerp(startRotPlayer, finalRotPlayer, lerp);
             //enemy.rotation = Quaternion.Slerp(startRotEnemy, finalRotEnemy, lerp);
 
-            // El jugador mira al enemigo durante todo el intercambio
-            Vector3 lookDirPlayer = (enemy.position - transform.position).normalized;
+            // El jugador mira al enemigo (sin inclinarse)
+            Vector3 lookDirPlayer = enemy.position - transform.position;
+            lookDirPlayer.y = 0;
+            lookDirPlayer.Normalize();
             if (lookDirPlayer.sqrMagnitude > 0.001f)
                 transform.rotation = Quaternion.LookRotation(lookDirPlayer);
 
-            // El enemigo mira al jugador
-            Vector3 lookDirEnemy = (transform.position - enemy.position).normalized;
+            // El enemigo mira al jugador (sin inclinarse)
+            Vector3 lookDirEnemy = transform.position - enemy.position;
+            lookDirEnemy.y = 0;
+            lookDirEnemy.Normalize();
             if (lookDirEnemy.sqrMagnitude > 0.001f)
                 enemy.rotation = Quaternion.LookRotation(lookDirEnemy);
 
